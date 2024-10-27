@@ -51,5 +51,14 @@ async function checkWeather(city){
 }
 
 searchBtn.addEventListener("click",()=>{
-        checkWeather(searchBox.value)
+    const dateString = new Date();
+    let dateTimestring='';
+    
+    if(dateString.getHours()<=12){
+        dateTimestring = dateString.getHours() +':'+dateString.getMinutes()+'AM';
+    } else {
+        dateTimestring = dateString.getHours() +':'+dateString.getMinutes()+'PM';
+    }
+    document.querySelector(".timeValue").innerHTML=dateTimestring;
+    checkWeather(searchBox.value)
 })
